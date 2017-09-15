@@ -28,95 +28,89 @@
 			<div class="slides">
 				<section>
                     <h4>Entwicklung eines</h4>
-                    <h2><strong>Augmented Reality-Frameworks</strong></h2>
+                    <h2 class='shadow'><strong>Augmented Reality-Frameworks</strong></h2>
 					<h4>im industriellen Umfeld</h4>
 					
 					<img class="small no-border inline" style="background: white;" src='assets/pictures/rexroth_logo.png' />
 					<img class="small no-border inline" style="background: white;" src='assets/pictures/Prowilan_logo.png' />
 				</section>
 				<section>
-					<h2>Gliederung</h2>
+					<h2 class='shadow'>Gliederung</h2>
 
 					<p class="fragment fade-in">
 						Marktcheck
 					</p>
-					<p>
-						<span class='fragment fade-in'>
-							Einblick
-						</span>
+					<p class='fragment fade-in'>
+						Einblick
 					</p>
-					<p>
-						<span class='fragment fade-in'>
-							Use Case
-						</span>
+					<p class='fragment fade-in'>
+						Use Case
 					</p>
 				</section>
 				<section>
 					<section>
-						<h2>JSARToolkit</h2>
+						<h2 class='shadow'>JSARToolkit</h2>
 
-						<p>
-							<span class='fragment fade-in'>
-								<span class='fragment shrink'>
-									JavaScript-Port von ARToolkit
-								</span>
-							</span>
+						<p class='fragment fade-in'>
+							JavaScript-Port von <span class='blue bold'>ARToolkit</span>
 						</p>
-						<p>
-							<span class='fragment fade-in'>
-								Marker-Tracking ( Template Matching )
-							</span>
+						<p class='fragment fade-in'>
+							Marker-Tracking ( Template Matching )
 						</p>
-						<p>
-							<span class='fragment fade-in'>
-								kostenlos, LGPLv3
-							</span>
+						<p class='fragment fade-in green'>
+							kostenlos, LGPLv3
 						</p>
 					</section>
 					<section>
-						<h2>JS-Aruco</h2>
+						<h2 class='shadow'>JS-Aruco</h2>
 
-						<p>
-							<span class='fragment fade-in'>
-								JavaScript-Port von Aruco
-							</span>
+						<p class='fragment fade-in'> 
+							JavaScript-Port von <span class='blue bold'>Aruco</span>
 						</p>
-						<p>
-							<span class='fragment fade-in'>
-								Marker-Tracking ( Binary Matching )
-							</span>
+						<p class='fragment fade-in'>
+							Marker-Tracking ( Binary Matching )
 						</p>
-						<p>
-							<span class='fragment fade-in'>
-								kostenlos, MIT
-							</span>
+						<p class='fragment fade-in green'>
+							kostenlos, MIT
 						</p>
 					</section>
 					<section>
-						<h2>Awe.js</h2>
+						<h2 class='shadow'>Awe.js</h2>
 
-						<p>
-							<span class='fragment fade-in'>
-								Web-basiert, Code optional
-							</span>
+						<p class='fragment fade-in'>
+							<span class='blue bold'>Web-basiert</span>, Code optional
 						</p>
-						<p>
-							<span class='fragment fade-in'>
-								Marker-Tracking, GPS
-							</span>
+						<p class='fragment fade-in'>
+							Marker-Tracking, GPS
 						</p>
-						<p>
-							<span class='fragment fade-in'>
-								19 $ pro Monat + Pakete
-							</span>
+						<p class='fragment fade-in shake red'>
+							19 $ pro Monat + Pakete
 						</p>
 					</section>
 				</section>
 				<section>
 					<section>
-						<h2>Einblick</h2>
+						<h2 class='shadow'>Einblick</h2>
 
-						<img class='medium no-border' src='assets/pictures/ar_flow.png' />
+						<img class='giant no-border' src='assets/pictures/ar_flow.png' />
+					</section>
+					<section>
+						<h2 class='shadow'>VideoStream abgreifen</h2>
+
+						<!-- Webcam Stream -->
+						<div class=''>
+							<video id='video'></video>
+						</div>
+
+						<!-- Code for Video -->
+						<div class=''>
+							<pre><code class='liveCoding js' data-trim data-noescape>
+								navigator.getUserMedia({
+									video: true
+								});
+							</code></pre>
+						</div>
+
 					</section>
 				</section>
 			</div>
@@ -136,7 +130,8 @@
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/live-coding/live-coding.js', async: true, condition: function(){ return !!document.body.classList; }}
 				]
 			});
 		</script>
