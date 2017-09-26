@@ -1,7 +1,9 @@
 <!doctype HTML>
 <html>
     <head>
-        <title>Einzelbild zeichnen</title>
+        <title>
+            JPEG-Konvertierung
+        </title>
     </head>
     <body>
         <video id='video' width='640' height='480' autoplay></video>
@@ -9,19 +11,28 @@
         <script src='js/webcam.js'></script>
         <script>
             var interval;
-
+    
             document.addEventListener( 'DOMContentLoaded', function(){
                 grabWebcam()
                 .then( ( stream ) => {
                     let videoElement = document.getElementById( 'video' );
                     videoElement.srcObject = stream;
-
+    
                     interval = setInterval( function(){
-                        let ctx = document.getElementById( 'capture' ).getContext( '2d' );
-
+                        /* Capture single picture */
+                        let captureElement = document.getElementById( 'capture' )
+                        let ctx = captureElement.getContext( '2d' );
                         ctx.drawImage( videoElement, 0, 0 );
 
+                        /* Convert to binary jpeg array */
+                        var b64Str = captureElement.toDataURL( 'image/jpeg', 0.75 ).split( ',' )[ 1 ];
+                        var binStr = atob( b64Str );
+    
+                        var binArray = new Array( binStr.length );
+                        for( var i = 0, max = binStr.length ; i < max ; i++ )
+                            binArray[ i ] = binStr.charCodeAt( i );
 
+                        console.log( binArray );
                     }, 1000 );
                 });
             });

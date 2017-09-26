@@ -117,9 +117,25 @@
 
 						<div class=''>
 							<pre><code data-trim data-noescape>
-								var ctx = document.getElementById( 'picture' ).getContext( '2d' );
+								var captureElement = document.getElementById( 'capture' );
+								var ctx = captureElement.getContext( '2d' );
 
 								ctx.drawImage( videoElement, 0, 0 );
+							</code></pre>
+						</div>
+					</section>
+					<section>
+						<h2 class='shadow'>JPEG-Konvertierung</h2>
+
+						<div class=''>
+							<pre><code data-trim data-noescape>
+								var b64Str = captureElement.toDataURL( 'image/jpeg', 0.75 )
+											.split( ',' )[1];
+								var binStr = atob( b64Str );
+
+								var binArray = new Array( binStr.length );
+								for( var i = 0, max = binStr.length ; i < max ; i++ )
+									binArray[ i ] = binStr.charCodeAt( i );
 							</code></pre>
 						</div>
 					</section>
