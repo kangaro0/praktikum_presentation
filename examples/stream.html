@@ -6,7 +6,6 @@
     <body>
         <video id='video' autoplay></video>
 
-        <script src='js/webcam.js' ></script>
         <script>
             document.addEventListener( 'DOMContentLoaded', function(){
                 grabWebcam()
@@ -16,6 +15,27 @@
                     videoElement.srcObject = stream;
                 });
             });
+
+            function grabWebcam(){
+                return new Promise( ( resolve, reject ) => {
+                    if( !navigator.mediaDevices.getUserMedia )
+                        reject( new Error( 'UserMedia not supported by your browser' ) );
+                    
+                    navigator.mediaDevices.getUserMedia({
+                        video: {
+                            width: 640,
+                            height: 480
+                        },
+                        audio: false
+                    })
+                    .then( ( stream ) => {
+                        resolve( stream );
+                    })
+                    .catch( ( error ) => {
+                        reject( error );
+                    });
+                });
+            }    
         </script>
     </body>
 </html>
