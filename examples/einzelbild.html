@@ -11,8 +11,6 @@
             var interval;
 
             document.addEventListener( 'DOMContentLoaded', function(){
-                document.body.appendChild( createCanvas() );
-
                 grabWebcam()
                 .then( ( stream ) => {
                     let videoElement = document.getElementById( 'video' );
