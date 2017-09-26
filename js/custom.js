@@ -11,3 +11,8 @@ Reveal.addEventListener( 'fragmentshown', ( event ) => {
     }
 });
 
+Reveal.addEventListener( 'fragmenthidden', ( event ) => {
+    let element = event.fragment;
+
+});
+

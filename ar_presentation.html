@@ -139,6 +139,36 @@
 							</code></pre>
 						</div>
 					</section>
+					<section>
+						<h2 class='shadow'>Tracking</h2>
+
+						<h3>Thresholding</h3>
+
+						<img class='giant no-border' src='assets/pictures/threshold.png' />
+					</section>
+					<section>
+						<h2 class='shadow'>Tracking</h2>
+
+						<h3>Contour filtering</h3>
+
+						<img class='giant no-border' src='assets/pictures/threshold_detected.png' />
+					</section>
+					<section>
+						<h2 class='shadow'>Tracking</h2>
+
+						<h3>Bits extraction</h3>
+
+						<div style='position: relative; width: 100%'>
+							<p class='fragment fade-in' style='position: absolute;'>
+								<img class='medium no-border inline' src='assets/pictures/threshold_inner.png' />
+								<img class='medium no-border inline' src='assets/pictures/marker1.png' />
+							</p>
+							<p class='fragment fade-in' style='position: absolute;'>
+								<img class='medium no-border inline' src='assets/pictures/threshold_inner2.png' />
+								<img class='medium no-border inline' src='assets/pictures/marker2.png' />
+							</p>
+						</div>
+					</section>
 				</section>
 			</div>
         </div>
@@ -157,8 +187,7 @@
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/live-coding/live-coding.js', async: true, condition: function(){ return !!document.body.classList; }}
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
 		</script>
