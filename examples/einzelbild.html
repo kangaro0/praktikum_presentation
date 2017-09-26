@@ -6,7 +6,7 @@
     <body>
         <video id='video' width='640' height='480' autoplay></video>
         <canvas id='capture' width='640' height='480'></canvas>
-        <script src='js/webcam.js'></script>
+        
         <script>
             var interval;
 
@@ -16,7 +16,7 @@
             document.addEventListener( 'DOMContentLoaded', function(){
                 videoElement = document.getElementById( 'video' );
                 captureElement = document.getElementById( 'capture' );
-                
+
                 grabWebcam()
                 .then( ( stream ) => {
                     videoElement.srcObject = stream;
