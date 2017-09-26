@@ -169,6 +169,92 @@
 							</p>
 						</div>
 					</section>
+					<section>
+						<h2 class='shadow'>Tracking</h2>
+
+						<h4>Kamera Kalibration</h4>
+						
+						<p class='fragment fade-in'>
+							Lochkamera
+						</p>
+						<p class='fragment fade-in'>
+							<img class='giant no-border' src='assets/pictures/lochkamera.png' />
+						</p>
+						<p class='fragment fade-in'>
+							erzeugt Kamera-Matrix <br>
+							und Distortions-Koeffizienten
+						</p>
+					</section>
+					<section>
+						<h2 class='shadow'>Tracking</h2>
+
+						<h4>Pose estimation</h4>
+
+						<p class='fragment fade-in'>
+							Berechnung der Translation und Rotation im Raum
+						</p>
+						<p class='fragment fade-in'>
+							$\begin{pmatrix}
+								u \\
+								v \\
+								1
+							\end{pmatrix}
+							
+							=
+							
+							\begin{pmatrix} 
+								f_{x} & 0 & c_{x} \\
+								0 & f_{y} & c_{y} \\
+								0 & 0 & 1
+							\end{pmatrix}
+
+							\cdot
+
+							\begin{pmatrix}
+								r_{11} & r_{12} & r_{13} & t_{1} \\
+								r_{21} & r_{22} & r_{23} & t_{2} \\
+								r_{31} & r_{32} & r_{33} & t_{3}
+							\end{pmatrix}
+
+							\cdot
+
+							\begin{pmatrix}
+								X \\
+								Y \\
+								Z \\
+								1
+							\end{pmatrix}
+							$							
+						</p>
+					</section>
+					<section>
+						<h2 class='shadow'>Anzeige</h4>
+
+						<p class='fragment fade-in'>
+							3D-Library <span class='blue'>THREE.JS</span>
+						</p>
+						<p class='fragment fade-in'>
+							Positionierung des 3D-Objekts
+						</p>
+					</section>
+					<section>
+						<h2 class='shadow'>Anzeige</h2>
+						<p>
+							<pre><code data-trim data-noescape>
+								var scene; // THREE.JS-Szene
+								var modelViewMatrix; // Pose estimation
+								var model; // zu platzierendes Model
+
+								model.matrix.multiply( modelViewMatrix );
+								scene.add( model );
+							</code></pre>
+						</p>
+					</section>
+					<section>
+						<h2 class='shadow'>FERTIG!</h2>
+
+						<img class='giant no-border'src='assets/pictures/tracking_done.png' />
+					</section>
 				</section>
 			</div>
         </div>
@@ -187,7 +273,8 @@
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/math-katex/math-katex.js', async: true }
 				]
 			});
 		</script>

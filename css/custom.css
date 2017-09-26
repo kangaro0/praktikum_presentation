@@ -52,7 +52,8 @@
 }
 
 .giant {
-    width: 60%;
+    width: 50% !important;
+    padding: 20px !important;
 }
 
 /* ORDERING */
