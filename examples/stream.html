@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Grab Webcam Stream</title>
+    </head>
+    <body>
+        <video id='video'>
+
+        </video>
+        <script>
+            function grabWebcam(){
+                return new Promise( ( resolve, reject ) => {
+                    if( !navigator.getUserMedia )
+                        reject( new Error( 'UserMedia not supported by your browser' ) );
+                    
+                    navigator.getUserMedia({
+                        video: true,
+                        audio: false
+                    })
+                    .then( ( stream ) => {
+                        resolve( stream );
+                    })
+                    .catch( ( error ) => {
+                        reject( error );
+                    });
+                });
+            }    
+
+            document.addEventListener( 'DOMContentLoaded', function(){
+                grabWebcam()
+                .then( ( stream ) => {
+                    let videoElement = document.getElementById( 'video' );
+
+                    video.srcObject = stream;
+                });
+            });
+        </script>
+    </body>
+</html>
