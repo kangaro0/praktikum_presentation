@@ -10,8 +10,14 @@
         <canvas id='capture' width='640' height='480'></canvas>
         <script>
             var interval;
+
+            var videoElement;
+            var captureElement;
     
             document.addEventListener( 'DOMContentLoaded', function(){
+                videoElement = document.getElementById( 'video' );
+                captureElement = document.getElementById( 'capture' );
+
                 grabWebcam()
                 .then( ( stream ) => {
                     let videoElement = document.getElementById( 'video' );

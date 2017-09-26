@@ -10,10 +10,15 @@
         <script>
             var interval;
 
+            var videoElement;
+            var captureElement;
+
             document.addEventListener( 'DOMContentLoaded', function(){
+                videoElement = document.getElementById( 'video' );
+                captureElement = document.getElementById( 'capture' );
+                
                 grabWebcam()
                 .then( ( stream ) => {
-                    let videoElement = document.getElementById( 'video' );
                     videoElement.srcObject = stream;
 
                     interval = setInterval( function(){
@@ -23,7 +28,6 @@
             });
 
             function drawImage(){
-                let captureElement = document.getElementById( 'capture' )
                 let ctx = captureElement.getContext( '2d' );
 
                 ctx.drawImage( videoElement, 0, 0 );
