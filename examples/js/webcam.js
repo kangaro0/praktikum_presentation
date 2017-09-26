@@ -5,7 +5,10 @@ function grabWebcam(){
             reject( new Error( 'UserMedia not supported by your browser' ) );
         
         navigator.mediaDevices.getUserMedia({
-            video: true,
+            video: {
+                width: 640,
+                height: 480
+            },
             audio: false
         })
         .then( ( stream ) => {
