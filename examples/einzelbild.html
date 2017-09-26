@@ -19,7 +19,7 @@
                     interval = setInterval( function(){
                         let ctx = document.getElementById( 'picture' ).getContext( '2d' );
 
-                        ctx.drawImage( videoElement, 0, 0 );
+                        ctx.drawImage( videoElement, 0, 0, 640, 480 );
                     }, 1000 );
                 });
             });
