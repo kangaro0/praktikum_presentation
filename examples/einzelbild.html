@@ -5,12 +5,14 @@
     </head>
     <body>
         <video id='video' autoplay></video>
-        <canvas id='picture'></canvas>
         <script src='js/webcam.js'></script>
+        <script src='js/canvas.js'></script>
         <script>
             var interval;
 
             document.addEventListener( 'DOMContentLoaded', function(){
+                body.appendChild( createCanvas() );
+
                 grabWebcam()
                 .then( ( stream ) => {
                     let videoElement = document.getElementById( 'video' );
