@@ -17,7 +17,8 @@
                     videoElement.srcObject = stream;
 
                     interval = setInterval( function(){
-                        let ctx = document.getElementById( 'capture' ).getContext( '2d' );
+                        let captureElement = document.getElementById( 'capture' );
+                        let ctx = capture.getContext( '2d' );
 
                         ctx.drawImage( videoElement, 0, 0 );
 

@@ -1,0 +1,31 @@
+<!doctype HTML>
+<html>
+    <head>
+        <title>WebRTC - Demo</title>
+    </head>
+    <body>
+        <canvas id='webcam'></canvas>
+        <!-- Hidden html elements, just for capturing -->
+        <video id='video' width='640' height='480' style='display: none;'></video>
+        <canvas id='capture' width='640' height='480' style='display: none;'></canvas>
+        <script src='js/webcam.html'></script>
+        <script>
+            
+            document.addEventListener( 'DOMContentLoaded', function(){
+
+                grabWebcam()
+                .then( ( stream ) => {
+                    var videoElement = document.getElementById( 'video' );
+                    videoElement.srcObject = stream;
+
+
+                })
+                .catch( ( error ) => {
+
+                });
+
+            });
+
+        </script>
+    </bodY>
+</html>
