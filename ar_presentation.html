@@ -97,20 +97,29 @@
 					<section>
 						<h2 class='shadow'>VideoStream abgreifen</h2>
 
-						<!-- Webcam Stream -->
-						<div class=''>
-							<video id='video'></video>
-						</div>
-
 						<!-- Code for Video -->
 						<div class=''>
 							<pre><code class='liveCoding js' data-trim data-noescape>
-								navigator.getUserMedia({
-									video: true
+								navigator.mediaDevices.getUserMedia({
+									video: {
+										height: 480,
+										width: 640,
+										frameRate: 30
+									},
+									audio: false
 								});
 							</code></pre>
 						</div>
 
+					</section>
+					<section>
+						<h2 class='shadow'>Einzelbild zeichnen</h2>
+
+						<div class=''>
+							<pre><code data-trim data-noescape>
+								
+							</code></pre>
+						</div>
 					</section>
 				</section>
 			</div>
