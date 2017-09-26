@@ -14,7 +14,7 @@
                 grabWebcam()
                 .then( ( stream ) => {
                     let videoElement = document.getElementById( 'video' );
-                    video.srcObject = stream;
+                    videoElement.srcObject = stream;
 
                     interval = setInterval( function(){
                         let ctx = document.getElementById( 'picture' ).getContext( '2d' );
